@@ -12,7 +12,7 @@ alert(nombre + " selecciona una de las 3 marcas disponibles")
 
 
 
-function Bicicle() {
+function bicicle() {
     marcaBicicleta = prompt("puedes seleccionar gt , merida o scott");
 if ( marcaBicicleta == "gt") {
     alert("Seleccionaste GT , el valor es de 600 usd")
@@ -29,13 +29,7 @@ else {
     alert("debes de selecionar una de las 3 opciones")
 }
 } 
-Bicicle()
-
-
-
-
-
-
+bicicle()
 
 
 
@@ -47,12 +41,28 @@ navToggle.addEventListener("click", ()=>{
     navMenu.classList.toggle("nav-menu_visible")
 })
 
-//alert("Bienvenidos a SHOPBIKES")
 
 
+//arrays
+
+const tipoDeBicicle = ['todoTerreno', 'urbano','ciclismo','bmx'];
 
 
+//console.log(tipoDeBicicle)
 
+function bicicles (talle, marca, rodado, suspension){
+    this.talle = talle;
+    this.marca = marca;
+    this.rodado = rodado;
+    this.suspension = suspension;
+
+}
+
+const biciclenew = new bicicles( 'm','venzo',27.5, 'delantera')
+
+tipoDeBicicle.push(biciclenew);
+
+console.log(tipoDeBicicle)
 
 
 

@@ -8,10 +8,6 @@ alert(nombre + " selecciona una de las 3 marcas disponibles")
 
 
 
-
-
-
-
 function bicicle() {
     marcaBicicleta = prompt("puedes seleccionar gt , merida o scott");
 if ( marcaBicicleta == "gt") {
@@ -65,7 +61,25 @@ tipoDeBicicle.push(biciclenew);
 console.log(tipoDeBicicle)
 
 
+//marcas de bicicletas
+const todasBicicle = [
+{marcaBici: 'trek' , precio : 70000},
+{marcaBici: 'merida' , precio : 85000},
+{marcaBici: 'gt' , precio : 90000},
+{marcaBici: 'scoot' , precio : 70000},
 
+]
+const resultSelect = todasBicicle.find((el) => el.marcaBici === 'scoot')
 
+console.log(resultSelect)
 
+console.log(todasBicicle.some((el) => el.marcaBici =='gt'))
+console.log(todasBicicle.some((el) => el.marcaBici =='bianchi'))
 
+//actualizacion de precios 2021 a 2022
+const actualizarPrecio = todasBicicle.map((el) => {
+    return{
+         marcaBici:el.marcaBici,
+         precio: el.precio * 2 }}
+)
+console.log(actualizarPrecio)

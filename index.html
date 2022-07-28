@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>shopbikes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     
     
@@ -19,8 +20,8 @@
     <i class="fa-solid fa-bars"></i>
 </button>
 <ul class="nav-menu ">
-<li class="nav-menu-item nav-link ">INICIO<a href="#" class="nav-icon"> </a></li>
-<li class="nav-menu-item nav-link ">PRODUCTOS<a href="#" class="nav-icon"> </a></li>
+<li class="nav-menu-item nav-link ">INICIO<a href="index.html" class="nav-icon"> </a></li>
+<li class="nav-menu-item nav-link ">PRODUCTOS<a href="/pages/productos.html" class="nav-icon"> </a></li>
 <li class="nav-menu-item nav-link ">QUIENES SOMOS<a href="#" class="nav-icon"></a></li>
 <li class="nav-menu-item nav-link ">CONTACTO<a href="#" class="nav-icon"></a></li>
 
@@ -34,36 +35,26 @@
 <p class="parrafotitle">Todas las marcas ,los mejores precios</p>
 </section>
 <section class="carrousel">
-
-       <div class="grande">
-        <img src="" alt="imagen1" class="img">
-        <img src="" alt="imagen2" class="img">
-                </div>
-<ul class="puntos">
-    <li class="punto"></li>
-    <li class="punto"></li>
-  
-
-</ul>
-
-
-
-
-
-
-
-
-
-
-
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/images/trek.jpg" class="d-block w-100" alt="trek" height= 650px>
+          </div>
+          <div class="carousel-item">
+            <img src="/images/bike2.jpg" class="d-block w-100" alt="bike2" height= 650px>
+          </div>
+          <div class="carousel-item">
+            <img src="/images/bike1.jpg" class="d-block w-100" alt="bike1" height= 650px>
+          </div>
+        </div>
+      </div>
+   
 
 </section>
 
 
-
-
-
 <section class="section-productos">
+    <a href="/pages/productos.html"></a>
    <h2 class="titleproductos">PRODUCTOS</h2> 
 <div class="productos">
 <div class="img-productos"><img src="images/aspect-960-dark-grey-300x300.jpg" alt="">
@@ -92,10 +83,10 @@
 <p class="parrafofooter">Shopbikes-Todos los derechos reservados 2022</p>
 
 </footer>
-
+                 
 
 <script src="/js/index.js"></script>
 <script src="https://kit.fontawesome.com/e63b6749a0.js" crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

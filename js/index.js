@@ -1,10 +1,10 @@
 
 
 
-alert("Bienvenidos a SHOPBIKES")
+//alert("Bienvenidos a SHOPBIKES")//
 
-nombre = prompt("hola como te llamas ")
-alert(nombre + " selecciona una de las 3 marcas disponibles")
+//nombre = prompt("hola como te llamas ")
+//alert(nombre + " selecciona una de las 3 marcas disponibles")
 
 
 
@@ -83,3 +83,23 @@ const actualizarPrecio = todasBicicle.map((el) => {
          precio: el.precio * 2 }}
 )
 console.log(actualizarPrecio)
+
+
+let listaDeProductos = document.querySelectorAll(".listaDeProductos")
+let menos = document.querySelector(".menos")
+let resultado = document.querySelector(".resultado")
+let contador = 0
+let mas = document.querySelector(".mas")
+mas.onclick = (e) => {
+    contador += 1;
+    resultado.innerText = contador
+
+}
+
+menos.onclick = (e) => {
+    contador -= 1;
+    resultado.innerText = contador
+
+}
+
+

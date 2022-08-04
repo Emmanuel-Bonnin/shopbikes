@@ -54,6 +54,7 @@ list-style: none;
 }
 
 .nav-menu-item{
+    
     font-size: 18px;
     margin: 0 10px;
     line-height: 60px;
@@ -103,10 +104,13 @@ display: none;
     padding: 25px;
 
 }
-.productos{display: flex;
-    flex-direction: row;
+#productos{display: flex;
 
 }
+
+.listaDeProductos{display:flex
+}
+
 .img-productos{display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,6 +126,11 @@ display: none;
     color:white;
 }
 
+
+
+
+#contacto{margin-top: 20px;
+          margin-bottom:20px;}    
 
 footer{
     background-color: black;

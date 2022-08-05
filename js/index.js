@@ -1,33 +1,6 @@
 
 
 
-//alert("Bienvenidos a SHOPBIKES")//
-
-//nombre = prompt("hola como te llamas ")
-//alert(nombre + " selecciona una de las 3 marcas disponibles")
-
-
-
-function bicicle() {
-    marcaBicicleta = prompt("puedes seleccionar gt , merida o scott");
-if ( marcaBicicleta == "gt") {
-    alert("Seleccionaste GT , el valor es de 600 usd")
-}
-else if ( marcaBicicleta == "scoot") {
-    alert("Seleccionaste SCOOT , el valor es de 900 usd")}
-
-
-else if ( marcaBicicleta == "merida") {
-        alert("Seleccionaste MERIDA , el valor es de 700 usd")
-
-}
-else {
-    alert("debes de selecionar una de las 3 opciones")
-}
-} 
-bicicle()
-
-
 
 //navtoggle//
 const navToggle = document.querySelector(".nav-toggle");
@@ -46,7 +19,7 @@ const tipoDeBicicle = ['todoTerreno', 'urbano','ciclismo','bmx'];
 
 //console.log(tipoDeBicicle)
 
-function bicicles (talle, marca, rodado, suspension){
+function Bicicles (talle, marca, rodado, suspension){
     this.talle = talle;
     this.marca = marca;
     this.rodado = rodado;
@@ -85,21 +58,29 @@ const actualizarPrecio = todasBicicle.map((el) => {
 console.log(actualizarPrecio)
 
 
-let listaDeProductos = document.querySelectorAll(".listaDeProductos")
-let menos = document.querySelector(".menos")
-let resultado = document.querySelector(".resultado")
+// sumar o restar la cantidad de bicicletas
+
+let listaDeProductos = document.querySelectorAll('.listaDeProductos')
+let menos = document.querySelectorAll('.menos')
+
 let contador = 0
-let mas = document.querySelector(".mas")
+let mas = document.querySelectorAll('.mas')
 mas.onclick = (e) => {
     contador += 1;
     resultado.innerText = contador
 
 }
 
-menos.onclick = (e) => {
-    contador -= 1;
-    resultado.innerText = contador
-
-}
 
 
+let resultado = document.querySelectorAll('.resultado')
+let menosS = document.querySelectorAll('.menos')
+
+for ( menos of menosS) {
+    let.el
+    menos.onclick = (e) => {
+        contador -= 1;
+        resultado.innerText = contador
+
+
+}}

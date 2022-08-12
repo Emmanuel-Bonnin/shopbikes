@@ -22,13 +22,17 @@ function Product(_id, _name, _price ,_image){
 
 //Arreglo de productos (nuestra 'Base de datos DB' cargada)
 const myProducts = [
-    new Product(0, 'Laptop', 3000 ,"./images/GT21_G27401M_29-M-Avalanche-300x300-1.jpg"),
-    new Product(1, 'TV VEO', 4000 ,"./images/GT21_G27401M_29-M-Avalanche-300x300-1.jpg"),
-    new Product(2, 'Celular', 2000, "./images/bicicleta-mtb-merida-big-n.jpg"),
-    new Product(3, 'Joystick', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
-    new Product(4, 'Joystick', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
-    new Product(5, 'Joystick', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
+    new Product(0, 'GT', 3000 ,"./images/GT21_G27401M_29-M-Avalanche-300x300-1.jpg", ),
+    new Product(1, 'GT 2', 4000 ,"./images/GT21_G27401M_29-M-Avalanche-300x300-1.jpg"),
+    new Product(2, 'MERIDA', 2000, "./images/bicicleta-mtb-merida-big-n.jpg"),
+    new Product(3, 'MERIDA 2', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
+    new Product(4, 'SCOOT', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
+    new Product(5, 'SCOOT2', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
     new Product(6, 'Joystick', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
+    new Product(7, 'SCOOT', 1000 ,"./images/aspect-960-dark-grey-300x300.JPG"),
+    new Product(8, 'SCOOT2', 1000 ,"./images/aspect-960-dark-grey-300x300.JPG"),
+    new Product(9, 'Joystick', 1000 ,"./images/aspect-960-dark-grey-300x300.JPG"),
+    new Product(10, 'Joystick', 1000 ,"./images/aspect-960-dark-grey-300x300.JPG"),
 ];
 
 //Buscamos el elemento contenedor
@@ -51,10 +55,10 @@ function renderProducts(){
         productsContainer.innerHTML += `
         <div 
         
-        id="product-${item.id}" class="product">
-            <h3>${item.name}</h3>
-            <p>Precio: ${item.price}</p>
-            <button id="buttonId-${item.id}" class="productButton">Show Information</button>
+        id="product-${item.id}" class="product"><br>
+            <h3>${item.name}</h3><br>
+            <p>Precio: ${item.price}</p><br>
+            <button id="buttonId-${item.id}" class="button-17">Agregar al Carrito</button>
             <img src="${item.image}" alt="" width="100%" height="100%">  
         </div>
         `;
@@ -69,11 +73,11 @@ function renderProducts(){
  */
 function addProductsEvents(){
     myProducts.forEach(item => {
-        const showInfoButton = document.getElementById(`buttonId-${item.id}`);
+        const carritoDeCompras = document.getElementById(`buttonId-${item.id}`);
 
         //Le agregamos al boton un evento para mostrar la informacion
         //Le pasamos una funcion anonima '()' la cual llamara a la funcion 'showInformation' pasandole el id como parametro
-        showInfoButton.addEventListener('click', (e) => showInformation(item.id));
+        carritoDeCompras.addEventListener('click', (e) => showInformation(item.id));
     })
 }
 

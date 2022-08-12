@@ -104,20 +104,33 @@ display: none;
     padding: 25px;
 
 }
-#productos{display: flex;
+/*parte de produtos*/
+#products{
+    display: flex;
+    flex-wrap: wrap;
 
 }
 
-.listaDeProductos{display:flex
-}
 
-.img-productos{display: flex;
-    flex-direction: column;
+.product{
+    border: 2px solid black;
+    background-color: rgb(120, 11, 33)!important ;
+    width: 250px;
+    height: 450px;
+    margin: 20px;
+
+}
+.product{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
     align-items: center;
-    
-    margin: 30px;
-    padding: 20px;
+}
 
+
+.image{
+    max-width: 100%;
+    
 }
 
 .parrafofooter{text-align: center;

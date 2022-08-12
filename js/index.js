@@ -12,75 +12,81 @@ navToggle.addEventListener("click", ()=>{
 
 
 
-//arrays
-
-const tipoDeBicicle = ['todoTerreno', 'urbano','ciclismo','bmx'];
-
-
-//console.log(tipoDeBicicle)
-
-function Bicicles (talle, marca, rodado, suspension){
-    this.talle = talle;
-    this.marca = marca;
-    this.rodado = rodado;
-    this.suspension = suspension;
-
+//Construccion de la clase para los objetos
+function Product(_id, _name, _price ,_image){
+    this.id = _id;
+    this.name = _name;
+    this.price = _price;
+    this.image = _image;
 }
 
-const biciclenew = new bicicles( 'm','venzo',27.5, 'delantera')
+//Arreglo de productos (nuestra 'Base de datos DB' cargada)
+const myProducts = [
+    new Product(0, 'Laptop', 3000 ,"./images/GT21_G27401M_29-M-Avalanche-300x300-1.jpg"),
+    new Product(1, 'TV VEO', 4000 ,"./images/GT21_G27401M_29-M-Avalanche-300x300-1.jpg"),
+    new Product(2, 'Celular', 2000, "./images/bicicleta-mtb-merida-big-n.jpg"),
+    new Product(3, 'Joystick', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
+    new Product(4, 'Joystick', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
+    new Product(5, 'Joystick', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
+    new Product(6, 'Joystick', 1000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
+];
 
-tipoDeBicicle.push(biciclenew);
+//Buscamos el elemento contenedor
+const productsContainer = document.getElementById('products');
 
-console.log(tipoDeBicicle)
+/**
+ * Muestra los productos en pantalla
+ */
+function renderProducts(){
+    //Limpiamos los productosd que se encuentran en el contenedor de productos
+    productsContainer.innerHTML = "";
 
+    //Colocar productos de la DB en la pagina
+    //para cada (foreach) item (elemento) de la DB hacemos lo siguiente
+    myProducts.forEach(item => {
 
-//marcas de bicicletas
-const todasBicicle = [
-{marcaBici: 'trek' , precio : 70000},
-{marcaBici: 'merida' , precio : 85000},
-{marcaBici: 'gt' , precio : 90000},
-{marcaBici: 'scoot' , precio : 70000},
+        //Tomamos el div y le agregamos HTML
+        //Dentrod el div colocamos un ID para el producto. El id es "product-ID" donde ID será diferente para cada producto. Ej: 'product-0'
+        //Hacemos lo mismo con el boton para tener un id dinamico
+        productsContainer.innerHTML += `
+        <div 
+        
+        id="product-${item.id}" class="product">
+            <h3>${item.name}</h3>
+            <p>Precio: ${item.price}</p>
+            <button id="buttonId-${item.id}" class="productButton">Show Information</button>
+            <img src="${item.image}" alt="" width="100%" height="100%">  
+        </div>
+        `;
+    });
 
-]
-const resultSelect = todasBicicle.find((el) => el.marcaBici === 'scoot')
-
-console.log(resultSelect)
-
-console.log(todasBicicle.some((el) => el.marcaBici =='gt'))
-console.log(todasBicicle.some((el) => el.marcaBici =='bianchi'))
-
-//actualizacion de precios 2021 a 2022
-const actualizarPrecio = todasBicicle.map((el) => {
-    return{
-         marcaBici:el.marcaBici,
-         precio: el.precio * 2 }}
-)
-console.log(actualizarPrecio)
-
-
-// sumar o restar la cantidad de bicicletas
-
-let listaDeProductos = document.querySelectorAll('.listaDeProductos')
-let menos = document.querySelectorAll('.menos')
-
-let contador = 0
-let mas = document.querySelectorAll('.mas')
-mas.onclick = (e) => {
-    contador += 1;
-    resultado.innerText = contador
-
+    addProductsEvents();
 }
 
+/**
+ * Añade los eventos para los botones.
+ * Tambien para otros elementos de ser necesario
+ */
+function addProductsEvents(){
+    myProducts.forEach(item => {
+        const showInfoButton = document.getElementById(`buttonId-${item.id}`);
 
+        //Le agregamos al boton un evento para mostrar la informacion
+        //Le pasamos una funcion anonima '()' la cual llamara a la funcion 'showInformation' pasandole el id como parametro
+        showInfoButton.addEventListener('click', (e) => showInformation(item.id));
+    })
+}
 
-let resultado = document.querySelectorAll('.resultado')
-let menosS = document.querySelectorAll('.menos')
+/**
+ * Muestra un alert con la informacion del producto
+ * @param {Number} id 
+ */
+function showInformation(id){
+    //Buscamos el producto en el arreglo
+    const product = myProducts.find(item => item.id == id);
 
-for ( menos of menosS) {
-    let.el
-    menos.onclick = (e) => {
-        contador -= 1;
-        resultado.innerText = contador
+    //Mostramos la informacion en un alert
+    alert(`Informacion de producto:\nNombre: ${product.name}\nPrecio: ${product.price}`);
+}
 
-
-}}
+renderProducts();

@@ -110,14 +110,16 @@ display: none;
     flex-wrap: wrap;
 
 }
+.titleproductos{text-align: center;}
 
-
+#quienessomos{text-align: center;}
+#contacto{text-align: center}
 .product{
     
     background-color: rgb(255, 255, 255)!important ;
     width: 250px;
     height: 450px;
-    margin: 20px;
+    margin: 40px;
     
 
 }

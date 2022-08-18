@@ -105,11 +105,15 @@ display: none;
 
 }
 /*parte de produtos*/
-#products{
+.container{
     display: flex;
-    flex-wrap: wrap;
-
 }
+
+.products-container{
+display: flex;
+}
+
+
 .titleproductos{text-align: center;}
 
 #quienessomos{text-align: center;}
@@ -123,18 +127,8 @@ display: none;
     
 
 }
-.product{
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-}
 
 
-.image{
-    max-width: 100%;
-    
-}
 
 .parrafofooter{text-align: center;
     margin: 20px;

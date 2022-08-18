@@ -52,28 +52,26 @@
 
 </section>
 
-
-<section id="productos">
-  <h2 class="titleproductos">Productos</h2>
-<div id="products">
- 
-
-<aside class="col-sm-4">
-  <h2>Carrito</h2>
-  <!-- Elementos del carrito -->
-  <ul id="carrito" class="list-group"></ul>
-  <hr>
-  <!-- Precio total -->
-  <p class="text-right">Total: <span id="total"></span>&euro;</p>
-  <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-</aside>
-</div>
-</div>
-
-<!-- HTML !-->
-
+<section class="products-carrito">
+<div class="container">
+        
+  <!-- Elementos generados a partir del JSON -->
+  <main id="products" class="products-container"></main>
+  <!-- Carrito -->
+  <div class="carrito-container">
+      <h2>Carrito</h2>
+      <!-- Elementos del carrito -->
+      <ul id="carrito" class="carrito1"></ul>
+      <hr>
+      <!-- Precio total -->
+      <p class="text-right">Total: <span id="total"></span>$</p>
+      <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+  </div>
 
 </section>
+
+
+
 <section id="quienessomos">
 <h3>Quienes Somos</h3>
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quisquam dolorum, praesentium asperiores et, ipsa aliquid molestias itaque explicabo obcaecati perspiciatis fugiat voluptatum quod deserunt quos sapiente, tempora nisi officia.

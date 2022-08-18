@@ -1,12 +1,10 @@
 
 
-
+//navbar
 
 //navtoggle//
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
-
-
 
 
 navToggle.addEventListener("click", ()=>{
@@ -18,78 +16,99 @@ navToggle.addEventListener("click", ()=>{
 // variable de carrito de Compras
 
 
+// Variables
+//productos en stock
+const productsInStock = [
+    {
+        id: 1,
+        nombre: 'GT',
+        precio: 130000,
+        imagen: './images/GT21_G27401M_29-M-Avalanche-300x300-1.jpg'
+    },
+    {
+        id: 2,
+        nombre: 'MERIDA',
+        precio: 120000,
+        imagen: './images/bicicleta-mtb-merida-big-n.jpg'
+    },
+    {
+        id: 3,
+        nombre: 'SCOOT',
+        precio: 150000,
+        imagen: './images/aspect-960-dark-grey-300x300.JPG'
+    },
+    {
+        id: 4,
+        nombre: 'CANNONDALE',
+        precio: 250000,
+        imagen: './images/cannondale.jpg'
+    },
 
-
-//Construccion de la clase para los objetos
-function Product(_id, _name, _price ,_image){
-    this.id = _id;
-    this.name = _name;
-    this.price = _price;
-    this.image = _image;
-}
-
-//Arreglo de productos (nuestra 'Base de datos DB' cargada)
-const myProducts = [
-    new Product(0, 'GT', 130000 ,"./images/GT21_G27401M_29-M-Avalanche-300x300-1.jpg", ),
-    new Product(1, 'GT 2', 140000 ,"./images/GT21_G27401M_29-M-Avalanche-300x300-1.jpg"),
-    new Product(2, 'MERIDA', 120000, "./images/bicicleta-mtb-merida-big-n.jpg"),
-    new Product(3, 'MERIDA 2', 110000 ,"./images/bicicleta-mtb-merida-big-n.jpg"),
-    new Product(4, 'SCOOT 1 ', 150000 ,"./images/aspect-960-dark-grey-300x300.JPG"),
-    new Product(5, 'SCOOT 2', 170000 ,"./images/aspect-960-dark-grey-300x300.JPG"),
-    new Product(6, 'CANNONDALE 1', 250000 ,"./images/cannondale.jpg"),
-    new Product(7, 'CANNONDALE 2', 300000 ,"./images/cannondale.JPG"),
-    new Product(8, 'SPECIALIZED 1 ', 350000 ,"./images/specialized-bicicleta-mtb-rockhopper-29.JPG"),
-    new Product(9, 'SPECIALIZED 2', 400000 ,"./images/specialized-bicicleta-mtb-rockhopper-29.JPG"),
-    new Product(10, 'SPECIALIZED 3', 450000 ,"./images/specialized-bicicleta-mtb-rockhopper-29.JPG"),
 ];
 
-//Buscamos el elemento contenedor
-const productsContainer = document.getElementById('products');
+let carrito = [];
+const divisa = '$';
+const DOMproducts = document.querySelector('#products');
+const DOMcarrito = document.querySelector('#carrito');
+const DOMtotal = document.querySelector('#total');
+const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+
+// Funciones
 
 /**
- * Muestra los productos en pantalla
+ * Dibuja todos los productos a partir de la base de datos. No confundir con el carrito
  */
-function renderProducts(){
-    //Limpiamos los productosd que se encuentran en el contenedor de productos
-    productsContainer.innerHTML = "";
-
-    //Colocar productos de la DB en la pagina
-    //para cada (foreach) item (elemento) de la DB hacemos lo siguiente
-    myProducts.forEach(item => {
-
-        //Tomamos el div y le agregamos HTML
-        //Dentrod el div colocamos un ID para el producto. El id es "product-ID" donde ID será diferente para cada producto. Ej: 'product-0'
-        //Hacemos lo mismo con el boton para tener un id dinamico
-        productsContainer.innerHTML += `
-        <div 
-        
-        id="product-${item.id}" class="product"><br>
-            <h3>${item.name}</h3><br>
-            <p>Precio: ${item.price}</p><br>
-            <button id="buttonId-${item.id}" class="button-17">Agregar al Carrito</button>
-            <img src="${item.image}" alt="" width="100%" height="100%">  
-        </div>
-        `;
+function mostrarProducts() {
+    productsInStock.forEach((info) => {
+        // Estructura
+        const miNodo = document.createElement('div');
+        miNodo.classList.add('card',);
+        // Body
+        const miNodoCardBody = document.createElement('div');
+        miNodoCardBody.classList.add('card-body');
+        // Titulo
+        const miNodoTitle = document.createElement('h5');
+        miNodoTitle.classList.add('card-title');
+        miNodoTitle.textContent = info.nombre;
+        // Imagen
+        const miNodoImagen = document.createElement('img');
+        miNodoImagen.classList.add('img-fluid');
+        miNodoImagen.setAttribute('src', info.imagen);
+        // Precio
+        const miNodoPrecio = document.createElement('p');
+        miNodoPrecio.classList.add('card-text');
+        miNodoPrecio.textContent = `${info.precio}${divisa}`;
+        // Boton 
+        const miNodoBoton = document.createElement('button');
+        miNodoBoton.classList.add('button-17' );
+        miNodoBoton.textContent = 'agregar al carrito';
+        miNodoBoton.setAttribute('marcador', info.id);
+        miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+        // Insertamos
+        miNodoCardBody.appendChild(miNodoImagen);
+        miNodoCardBody.appendChild(miNodoTitle);
+        miNodoCardBody.appendChild(miNodoPrecio);
+        miNodoCardBody.appendChild(miNodoBoton);
+        miNodo.appendChild(miNodoCardBody);
+        DOMproducts.appendChild(miNodo);
     });
-
-    addProductsEvents();
 }
 
 /**
- * Añade los eventos para los botones.
- * Tambien para otros elementos de ser necesario
+ * Evento para añadir un producto al carrito de la compra
  */
-
-
-
 function anyadirProductoAlCarrito(evento) {
     // Anyadimos el Nodo a nuestro carrito
     carrito.push(evento.target.getAttribute('marcador'))
     // Actualizamos el carrito 
-    renderizarCarrito();
+    mostrarCarrito();
 
 }
-function renderizarCarrito() {
+
+/**
+ * Dibuja todos los productos guardados en el carrito
+ */
+function mostrarCarrito() {
     // Vaciamos todo el html
     DOMcarrito.textContent = '';
     // Quitamos los duplicados
@@ -97,7 +116,7 @@ function renderizarCarrito() {
     // Generamos los Nodos a partir de carrito
     carritoSinDuplicados.forEach((item) => {
         // Obtenemos el item que necesitamos de la variable base de datos
-        const miItem = baseDeDatos.filter((itemBaseDatos) => {
+        const miItem = productsInStock.filter((itemBaseDatos) => {
             // ¿Coincide las id? Solo puede existir un caso
             return itemBaseDatos.id === parseInt(item);
         });
@@ -136,7 +155,7 @@ function borrarItemCarrito(evento) {
         return carritoId !== id;
     });
     // volvemos a renderizar
-    renderizarCarrito();
+    mostrarCarrito();
 }
 
 /**
@@ -146,7 +165,7 @@ function calcularTotal() {
     // Recorremos el array del carrito 
     return carrito.reduce((total, item) => {
         // De cada elemento obtenemos su precio
-        const miItem = baseDeDatos.filter((itemBaseDatos) => {
+        const miItem = productsInStock.filter((itemBaseDatos) => {
             return itemBaseDatos.id === parseInt(item);
         });
         // Los sumamos al total
@@ -161,12 +180,12 @@ function vaciarCarrito() {
     // Limpiamos los productos guardados
     carrito = [];
     // Renderizamos los cambios
-    renderizarCarrito();
+    mostrarCarrito();
 }
 
 // Eventos
 DOMbotonVaciar.addEventListener('click', vaciarCarrito);
 
 // Inicio
-renderizarProductos();
-renderizarCarrito();
+mostrarProducts();
+mostrarCarrito();

@@ -60,6 +60,13 @@ const miLocalStorage = window.localStorage;
 /**
  * Dibuja todos los productos a partir de la base de datos. No confundir con el carrito
  */
+
+
+ fetch("api.json")
+ .then((response) => response.json())
+ .then((json) => console.log(json));
+ let
+
 function mostrarProducts() {
     productsInStock.forEach((info) => {
         // Estructura

@@ -62,10 +62,10 @@ const miLocalStorage = window.localStorage;
  */
 
 
- fetch("api.json")
+ fetch("/.api.json")
  .then((response) => response.json())
  .then((json) => console.log(json));
- let
+
 
 function mostrarProducts() {
     productsInStock.forEach((info) => {

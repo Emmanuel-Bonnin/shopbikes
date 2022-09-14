@@ -62,12 +62,12 @@ const miLocalStorage = window.localStorage;
  */
 
 
- fetch("/.api.json")
+ fetch("js/api.json")
  .then((response) => response.json())
- .then((json) => console.log(json));
+ .then((json) => {
+    console.log("Respuesta:",json);
+    let productsInStock = json
 
-
-function mostrarProducts() {
     productsInStock.forEach((info) => {
         // Estructura
         const miNodo = document.createElement('div');
@@ -101,7 +101,7 @@ function mostrarProducts() {
         miNodo.appendChild(miNodoCardBody);
         DOMproducts.appendChild(miNodo);
     });
-}
+
 
 /**
  * Evento para añadir un producto al carrito de la compra
@@ -139,11 +139,11 @@ function mostrarCarrito() {
         }, 0);
         // Creamos el nodo del item del carrito
         const miNodo = document.createElement('li');
-        miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+        miNodo.classList.add('list-group-item', 'text-center', 'mx-2');
         miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
         // Boton de borrar
         const miBoton = document.createElement('button');
-        miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+        miBoton.classList.add('btn', 'btn-danger', 'm1');
         miBoton.textContent = 'X';
         miBoton.style.marginLeft = '1rem';
         miBoton.dataset.item = item;
@@ -218,3 +218,4 @@ cargarCarritoDeLocalStorage();
 mostrarProducts();
 mostrarCarrito();
 });
+})

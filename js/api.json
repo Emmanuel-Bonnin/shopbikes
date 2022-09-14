@@ -34,17 +34,6 @@
         "nombre": "MERIDA",
         "precio": 120000,
         "imagen": "./images/bicicleta-mtb-merida-big-n.jpg"
-    },
-    {
-        "id": 7,
-        "nombre": "SCOOT",
-        "precio": 150000,
-        "imagen": "./images/aspect-960-dark-grey-300x300.JPG"
-    },
-    {
-        "id": 8,
-        "nombre": "CANNONDALE",
-        "precio": 250000,
-        "imagen": "./images/cannondale.jpg"
     }
+   
 ]

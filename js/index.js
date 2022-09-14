@@ -20,33 +20,7 @@ navToggle.addEventListener("click", ()=>{
 //productos en stock
 document.addEventListener('DOMContentLoaded', () => {
 
-const productsInStock = [
-    {
-        id: 1,
-        nombre: 'GT',
-        precio: 130000,
-        imagen: './images/GT21_G27401M_29-M-Avalanche-300x300-1.jpg'
-    },
-    {
-        id: 2,
-        nombre: 'MERIDA',
-        precio: 120000,
-        imagen: './images/bicicleta-mtb-merida-big-n.jpg'
-    },
-    {
-        id: 3,
-        nombre: 'SCOOT',
-        precio: 150000,
-        imagen: './images/aspect-960-dark-grey-300x300.JPG'
-    },
-    {
-        id: 4,
-        nombre: 'CANNONDALE',
-        precio: 250000,
-        imagen: './images/cannondale.jpg'
-    },
 
-];
 
 let carrito = [];
 const divisa = '$';
@@ -121,23 +95,17 @@ function anyadirProductoAlCarrito(evento) {
  * Dibuja todos los productos guardados en el carrito
  */
 function mostrarCarrito() {
-    // Vaciamos todo el html
-    DOMcarrito.textContent = '';
-    // Quitamos los duplicados
+ DOMcarrito.textContent = '';
+   
     const carritoSinDuplicados = [...new Set(carrito)];
-    // Generamos los Nodos a partir de carrito
+
     carritoSinDuplicados.forEach((item) => {
-        // Obtenemos el item que necesitamos de la variable base de datos
         const miItem = productsInStock.filter((itemBaseDatos) => {
-            // ¿Coincide las id? Solo puede existir un caso
-            return itemBaseDatos.id === parseInt(item);
+                       return itemBaseDatos.id === parseInt(item);
         });
-        // Cuenta el número de veces que se repite el producto
         const numeroUnidadesItem = carrito.reduce((total, itemId) => {
-            // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
             return itemId === item ? total += 1 : total;
         }, 0);
-        // Creamos el nodo del item del carrito
         const miNodo = document.createElement('li');
         miNodo.classList.add('list-group-item', 'text-center', 'mx-2');
         miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
@@ -215,7 +183,7 @@ DOMbotonVaciar.addEventListener('click', vaciarCarrito);
 
 // Inicio
 cargarCarritoDeLocalStorage();
-mostrarProducts();
+
 mostrarCarrito();
 });
 })
